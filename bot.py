@@ -153,9 +153,9 @@ async def roll(ctx, dice):
             Allsum = Allsum + sum
          elif sign == "-" :
             Allsum = Allsum - sum
-         elif sign == "-" :
+         elif sign == "*" :
             Allsum = Allsum * sum
-         elif sign == "-" :
+         elif sign == "/" :
             Allsum = Allsum / sum
          pp.insert(0, "``[")
          pp.insert(k+1, "]``")  
