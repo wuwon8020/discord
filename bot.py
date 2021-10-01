@@ -48,7 +48,7 @@ async def hello(ctx):
 
 @client.command()
 async def 만만이(ctx):
-    await ctx.send('만만이 병신')
+    await ctx.send('```검열됨```')
 
 
 
