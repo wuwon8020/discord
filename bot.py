@@ -61,11 +61,20 @@ async def roll(ctx, dice):
     i=0
     dice2 = list()
     dice3 = list()
-    ak = 0
+    ak = 0	
+    sign =""
     while a<lenth :
-        if dice[a:a+1] == "+" :
+        if dice[a:a+1] == "+"  or dice[a:a+1] == "-" or dice[a:a+1] == "*" or dice[a:a+1] == "/qq":
              a=lenth
              ak=2
+         if dice[a:a+1] == "+" :
+                sign = "+"
+         elif dice[a:a+1] == "+" :
+                sign = "-"
+         elif dice[a:a+1] == "+" :
+                sign = "*"
+         elif dice[a:a+1] == "+" :
+                sign = "%"
         a=a+1
     embed = discord.Embed(title = "주사위",
     description = dice, color = 0x62c1cc)
@@ -109,12 +118,20 @@ async def roll(ctx, dice):
       j=0
       pa = ""
       while i<lenth:
-	         if dice[i] =="+":
+	         if dice[i] =="+" or dice[a:a+1] == "-" or dice[a:a+1] == "*" or dice[a:a+1] == "/":
 		          z=z+1
 	         i=i+1
 
       i=0
-      dice2=dice.split('+') 
+      if sign == "+" :
+            dice2=dice.split('+')
+      elif sign == "-" :
+            dice2=dice.split('-')
+      elif sign == "*" :
+            dice2=dice.split('*')
+      elif sign == "/" :
+            dice2=dice.split('/')
+ 
       Allsum = 0
       while i<z :
          pp = list()
@@ -132,7 +149,14 @@ async def roll(ctx, dice):
          while m<k :
           sum = sum + pp[m]  
           m=m+1
-         Allsum = Allsum + sum 
+         if sign == "+" :
+            Allsum = Allsum + sum
+         elif sign == "-" :
+            Allsum = Allsum - sum
+         elif sign == "-" :
+            Allsum = Allsum * sum
+         elif sign == "-" :
+            Allsum = Allsum / sum
          pp.insert(0, "``[")
          pp.insert(k+1, "]``")  
 
@@ -144,7 +168,10 @@ async def roll(ctx, dice):
          embed.add_field(name = "Roll", value = pa,  inline=False)
          embed.add_field(name = "Result", value = sum, inline=False)
          i=i+1
-      embed.add_field(name = "All Result", value = Allsum, inline=False)
+      embed.add_field(name = "All Result", value = Allsum, inline=False)    
+           
+
+       
     await ctx.send(embed = embed)
      
 
