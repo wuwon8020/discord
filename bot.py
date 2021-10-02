@@ -11,12 +11,13 @@ from discord.utils import get
 import os
 
 
-client = commands.Bot(command_prefix='@')
+client = commands.Bot(command_prefix='$')
+
 client.remove_command("help")
 
-for filename in os.listdir("Cogs"):
+for filename in os.listdir("Pile"):
     if filename.endswith(".py"):
-        client.load_extension(f"Cogs.{filename[:-3]}")
+        client.load_extension(f"Pile.{filename[:-3]}")
 
 
 
@@ -49,4 +50,4 @@ async def on_command_error(ctx, error):
         return
 
 
-client.run('token') 
+client.run(os.environ['token']) 
