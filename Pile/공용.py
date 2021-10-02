@@ -101,10 +101,10 @@ class Core(commands.Cog, name="공용"):
        
        sum.insert(0, "```[")
        sum.insert(k+1, "]```")   
-       sum= ' ' .join(sum)
+       px= ' ' .join(sum)
        pa= ' ' .join(pp)
        embed.add_field(name = "Roll", value = pa,  inline=False)
-       embed.add_field(name = "Result", value = sum, inline=False)
+       embed.add_field(name = "Result", value = px, inline=False)
        await ctx.send(embed = embed)
 
       else :
@@ -147,15 +147,15 @@ class Core(commands.Cog, name="공용"):
           pp[o] = str(pp[o]) 
          sum.insert(0, "```[")
          sum.insert(k+1, "]```")   
-         sum= ' ' .join(sum)
+         px= ' ' .join(sum)
          pa= ' ' .join(pp)
          Allsum.insert(0, "```[")
          Allsum.insert(k+1, "]```")   
-         Allsum= ' ' .join(Allsum)
+         pz= ' ' .join(Allsum)
          embed.add_field(name = "Roll", value = pa,  inline=False)
-         embed.add_field(name = "Result", value = sum, inline=False)
+         embed.add_field(name = "Result", value = px, inline=False)
          i=i+1
-       embed.add_field(name = "All Result", value = Allsum, inline=False)
+       embed.add_field(name = "All Result", value = pz, inline=False)
        await ctx.send(embed = embed)
 
     
