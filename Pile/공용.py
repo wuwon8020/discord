@@ -103,8 +103,8 @@ class Core(commands.Cog, name="공용"):
        sum.insert(k+1, "]```")   
        sum= ' ' .join(sum)
        pa= ' ' .join(pp)
-       embed.add_field(name = "Roll", value = pa,  inline=True)
-       embed.add_field(name = "Result", value = sum, inline=True)
+       embed.add_field(name = "Roll", value = pa,  inline=False)
+       embed.add_field(name = "Result", value = sum, inline=False)
        await ctx.send(embed = embed)
 
       else :
