@@ -92,19 +92,17 @@ class Core(commands.Cog, name="공용"):
        while i<k :
         sum = sum + pp[i]  
         i=i+1
-      
+
        pp.insert(0, "```[")
        pp.insert(k+1, "]```")   
 
        for o in range(len(pp)):
         pp[o] = str(pp[o])
-       
-       sum.insert(0, "```[")
-       sum.insert(k+1, "]```")   
-       px= ' ' .join(sum)
+
+
        pa= ' ' .join(pp)
        embed.add_field(name = "Roll", value = pa,  inline=False)
-       embed.add_field(name = "Result", value = px, inline=False)
+       embed.add_field(name = "Result", value = sum, inline=False)
        await ctx.send(embed = embed)
 
       else :
@@ -145,17 +143,13 @@ class Core(commands.Cog, name="공용"):
 
          for o in range(len(pp)):
           pp[o] = str(pp[o]) 
-         sum.insert(0, "```[")
-         sum.insert(k+1, "]```")   
-         px= ' ' .join(sum)
+
          pa= ' ' .join(pp)
-         Allsum.insert(0, "```[")
-         Allsum.insert(k+1, "]```")   
-         pz= ' ' .join(Allsum)
+
          embed.add_field(name = "Roll", value = pa,  inline=False)
-         embed.add_field(name = "Result", value = px, inline=False)
+         embed.add_field(name = "Result", value = sum, inline=False)
          i=i+1
-       embed.add_field(name = "All Result", value = pz, inline=False)
+       embed.add_field(name = "All Result", value = Allsum, inline=False)
        await ctx.send(embed = embed)
 
     
