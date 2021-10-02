@@ -1,2 +1,13 @@
 discord.py
 asyncio
+discord
+pip
+aiohttp
+async-timeout
+idna
+yarl
+setuptools
+typing-extensions
+chardet
+attrs
+aiohttp
