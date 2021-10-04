@@ -54,8 +54,8 @@ class Core(commands.Cog, name="공용"):
 
 
 
-@commands.command(name="roll", help = "주사위를 돌립니다. (M면체 주사위를 N번 돌립니다)", usage = "$roll NdM")
-async def roll(self, ctx, dice):
+    @commands.command(name="roll", help = "주사위를 돌립니다. (M면체 주사위를 N번 돌립니다)", usage = "$roll NdM")
+    async def roll(self, ctx, dice):
       lenth = len(dice)
       
       a=0
