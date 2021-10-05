@@ -14,13 +14,13 @@ class 놀이터(commands.Cog, name = "놀이터"):
         member = ctx.message.author
     
         if RRR == "로보토미" :
-         await member.add_roles(get(ctx.guild.roles, name="롭토 R-18"))
+         await member.add_roles(887535494320230441)
          embed = discord.Embed(title = "로보토미 R-18 지급",
          description = "", color = 0x62c1cc)
          embed.set_footer(text = f"{ctx.message.author.name}", icon_url = ctx.message.author.avatar_url)
          await ctx.send(embed = embed)
         elif RRR == "원신" :    
-         await member.add_roles(get(ctx.guild.roles, name="원신 R-18"))
+         await member.add_roles(893028941865025587)
          embed = discord.Embed(title = "원신 R-18 지급",
          description = "", color = 0x62c1cc)
          embed.set_footer(text = f"{ctx.message.author.name}", icon_url = ctx.message.author.avatar_url)
