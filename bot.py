@@ -49,4 +49,4 @@ async def on_command_error(ctx, error):
         return
 
 
-client.run(os.environ['token']) 
+client.run('token') 
