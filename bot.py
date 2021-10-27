@@ -12,20 +12,17 @@ import os
 
 client = commands.Bot(command_prefix='$')
 
+client.remove_command("help")
 
-
-
-@client.event
-async def on_ready():
-  client.remove_command("help")
-  for filename in os.listdir("Pile"):
+for filename in os.listdir("Pile"):
     if filename.endswith(".py"):
         client.load_extension(f"Pile.{filename[:-3]}")
 
-  # [discord.Status.online = 온라인],[discord.Status.idle = 자리비움],[discord.Status.dnd = 다른용무],[discord.Status.offline = 오프라인]
-  await client.change_presence(status=discord.Status.online)
+@client.event
+async def on_ready():
+      await client.change_presence(status=discord.Status.online)
 
-  await client.change_presence(activity=discord.Game(name="게임 하는중"))
+      await client.change_presence(activity=discord.Game(name="게임 하는중"))
 
 
 
@@ -55,6 +52,5 @@ async def on_command_error(ctx, error):
         description = "올바른 명령어가 아닙니다. 명령어에 대해 알아볼려면 $help를 입력해주세요.", color = 0x62c1cc)
         await ctx.send(embed=embed)
         return
-
 
 client.run(os.environ['token'])
