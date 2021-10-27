@@ -53,4 +53,4 @@ async def on_command_error(ctx, error):
         await ctx.send(embed=embed)
         return
 
-client.run(os.environ['token'])
+client.run('token')
