@@ -22,7 +22,7 @@ for filename in os.listdir("Pile"):
 async def on_ready():
       await client.change_presence(status=discord.Status.online)
 
-      await client.change_presence(activity=discord.Game(name="게임 하는중"))
+      await client.change_presence(activity=discord.Game(name="게임"))
 
 
 
