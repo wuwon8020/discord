@@ -5,6 +5,9 @@ from discord.utils import get
 import random
 import dice
 
+
+
+
 class Core(commands.Cog, name="공용"):
  
     def __init__(self, app):
@@ -14,7 +17,7 @@ class Core(commands.Cog, name="공용"):
     async def help_command(self, ctx, func=None):
       
         if func is None:
-            embed = discord.Embed(title="흑우의 디스코드 봇", description="접두사는 `$` 입니다.") #Embed 생성
+            embed = discord.Embed(title="디스코드 봇", description="접두사는 `$` 입니다.") #Embed 생성
             cog_list = ["공용"] # Cog 리스트 추가
             for x in cog_list: # cog_list에 대한 반복문
                  cog_data = self.app.get_cog(x) # x에 대해 Cog 데이터를 구하기
@@ -40,11 +43,7 @@ class Core(commands.Cog, name="공용"):
 
                 
                     embed = discord.Embed(title=f"명령어 : {cmd}", description=cmd.help, inline=False) # Embed 만들기
-                    if func == "RRR" or "만만이" :
-                      embed.add_field(name="주의!", value="이 명령어는 놀이터에서만 기동됩니다.") # 사용법 추가
-                      
-                    embed.add_field(name="사용법", value=cmd.usage, inline=False) # 사용법 추가
-                    command_notfound = False
+        
                     break # 반복문 나가기
                 else:
                     command_notfound = True
@@ -59,7 +58,20 @@ class Core(commands.Cog, name="공용"):
     async def roll(self, ctx, dice):
        await ctx.send(embed = dice(ctx, dice))
 
+    @commands.command(name = "입장")
+    async def start_command():
+        embed = discord.Embed(title="SHOP BOT",description="SHOP 아이템 목록. 쇼핑을 합시다", color=0x00aaaa)
+        embed.add_field(name="STEP🦶", value="빠르게 이동한다", inline=False)
+        msg = await message.channel.send(embed=embed)
+        await msg.add_reaction("🦶") #step
+        
+    
+    @client.event
+    async def on_reaction_add(reaction, user):
+    
 
+        if str(reaction.emoji) == "🦶":
+            await user.add_roles(get(ctx.guild.roles, name="마크"))
     
 
 
