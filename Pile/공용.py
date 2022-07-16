@@ -59,19 +59,19 @@ class Core(commands.Cog, name="공용"):
        await ctx.send(embed = dice(ctx, dice))
 
     @commands.command(name = "입장")
-    async def start_command():
+    async def start_command(ctx):
         embed = discord.Embed(title="SHOP BOT",description="SHOP 아이템 목록. 쇼핑을 합시다", color=0x00aaaa)
         embed.add_field(name="STEP🦶", value="빠르게 이동한다", inline=False)
-        msg = await message.channel.send(embed=embed)
+        msg = await ctx.channel.send(embed=embed)
         await msg.add_reaction("🦶") #step
         
     
-    @client.event
+    @commands.event
     async def on_reaction_add(reaction, user):
     
 
         if str(reaction.emoji) == "🦶":
-            await user.add_roles(get(ctx.guild.roles, name="마크"))
+            await user.add_roles(get(user.guild.roles, name="마크"))
     
 
 
